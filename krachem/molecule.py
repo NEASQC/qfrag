@@ -97,20 +97,6 @@ class Molecule:
 
 # ~~~~~~~> First Part: Intermolecular Fragmentation <~~~~~~~~~
     @staticmethod
-    def molecule_converter(molecule_input,input_format, output_format):
-        obConversion = openbabel.OBConversion()
-        obConversion.SetInAndOutFormats(input_format, output_format)
-        mol = openbabel.OBMol()
-        obConversion.ReadFile(mol, molecule_input)
-
-
-        molecule_output = output_format + '/' + molecule_input.split('/')[1].split('.')[0] + '.' +output_format
-        obConversion.WriteFile(mol, molecule_output)
-        mol_file = open(molecule_output)
-
-        return mol_file.read()
-
-    @staticmethod
     def subgraph2xyz(xyz, subgraph):
         """ Gets a list of xyz coordinates and extracts the coordinates
             from a given subgraph
@@ -210,22 +196,6 @@ class Molecule:
 
         return G
 
-    def draw(self):
-        """ Draws a graph using its properties
-       
-        Returns
-        ----------
-        plot
-            draws a graph
-        
-        """
-        d = {}
-        for x in range(len(self.atoms)):
-            d[x] = self.atoms[x]
-            
-        colors_n = nx.get_node_attributes(self.graph,'color').values()       
-        nx.draw(self.graph,labels = d, node_color = colors_n, font_weight = 'bold')
-        plt.show()
         
     def IntermolecularFragmentation(self):
         """ Searches for fragments as molecules in a chemical compound
@@ -382,79 +352,6 @@ class Molecule:
 
         return C
 
-    def breakingdraw(self, components):
-        G = self.graph.copy()
-        edges = G.edges()
-        d = {}
-        for x in range(len(self.atoms)):
-            d[x] = self.atoms[x]
-         
-        for e in edges:
-            nx.set_edge_attributes(G, {e: {"color": 'k'}})
-            nx.set_edge_attributes(G, {e: {"weight": 1.0}})
-         
-        for x in range(len(components) - 1):
-            nx.set_edge_attributes(G, {list(G.edges(components[x]))[0]: {"color": 'r'}})
-            nx.set_edge_attributes(G, {list(G.edges(components[x]))[0]: {"weight": 1.2}})
-        
-            
-        
-        colors_n = nx.get_node_attributes(G,'color').values()   
-        colors_e = nx.get_edge_attributes(G,'color').values()
-        w = nx.get_edge_attributes(G,'weight').values()
-        
-        nx.draw_kamada_kawai(G,labels = d, node_color = list(colors_n), edge_color=colors_e, font_weight = 'bold',width=list(w))
-
-        plt.show()
-
-    def fragmentdraw(self, subgraph):
-        G = self.graph.copy()
-        S = G.subgraph(subgraph)
-        
-        d = {}
-        for x in subgraph:
-            d[x] = self.atoms[x]
-        
-        colors_n = nx.get_node_attributes(S,'color').values() 
-        nx.draw_kamada_kawai(S,labels = d, node_color = list(colors_n), font_weight = 'bold')
-#         nx.draw(S)
-        
-        plt.show()
-
-    def draw_intra(self):
-        """ Draws a graph based on its leaves and the rest,
-            represented by different colors
-
-        Returns
-        ----------
-        plot
-            plots a graph based on leaves in green and the rest in brown
-        """
-        
-        atoms = self.atoms
-        edges = self.edges
-        G = nx.Graph()
-        d= {}
-        plt.figure(figsize=(4 + len(atoms)//10,4 + len(atoms)//10))
-
-        for x in range(len(atoms)):
-            d[x] = atoms[x]
-            G.add_node(x, color = '#946c5c')     
-
-        for x in range(len(edges)):
-            G.add_edge(edges[x][0],edges[x][1], color = '#535c5b')     
-
-
-        for x in range(len(atoms)):
-
-            if(G.degree()[x]==1):
-                G.add_node(x, color = '#61ab95')
-
-        colors_n = nx.get_node_attributes(G,'color').values()
-        colors_e = nx.get_edge_attributes(G,'color').values()   
-
-        nx.draw_kamada_kawai(G,labels = d, node_color = colors_n,font_weight = 'bold')
-        plt.show()
         
       
     def leaves_connections(self):

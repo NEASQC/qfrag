@@ -211,7 +211,7 @@ class Molecule:
         return graph_components
     
 
-    def fragments2file(self):
+    def fragments2file(self,folder_name='fragmentation_folder'):
         """ Writes files for each fragments and for every combination
             of fragments using combinations function from itertools
         
@@ -225,7 +225,7 @@ class Molecule:
         xyz_mol = self.xyz2list(self.path)
 
         #--- creating the main directory
-        p = Path(f'inter_frag_{self.name}_xyx_files/') 
+        p = Path(f'results/{folder_name}/') 
         try:
             
             p.mkdir()
@@ -236,7 +236,7 @@ class Molecule:
         for c in range(number_of_components):
             frag_comb = list(combinations(np.arange(number_of_components), c + 1))
 
-            p = Path(f'inter_frag_{self.name}_xyx_files/combination{c+1}/') 
+            p = Path(f'results/{folder_name}/combination{c+1}/') 
             try:
                 p.mkdir()
             except FileExistsError as exc:
@@ -244,9 +244,9 @@ class Molecule:
 
 
             for idx, value in enumerate(frag_comb):
-                open(f'inter_frag_{self.name}_xyx_files/combination{c+1}/compound_{idx}.xyz','w+')
+                open(f'results/{folder_name}/combination{c+1}/compound_{idx}.xyz','w+')
 
-                with open(f'inter_frag_{self.name}_xyx_files/combination{c+1}/compound_{idx}.xyz','w+') as file:
+                with open(f'results/{folder_name}/combination{c+1}/compound_{idx}.xyz','w+') as file:
 
                     for x in value:
                         molecule_content = self.subgraph2xyz(xyz_mol, self.inter_components[x])
@@ -315,7 +315,7 @@ class Molecule:
         
         numberOfComponents = len(components)
         
-        p = Path(f'{folder_name}/') 
+        p = Path(f'results/{folder_name}/') 
         
        
         try:
@@ -329,16 +329,16 @@ class Molecule:
             pass
         
         for idx in range(numberOfComponents):
-            p = Path(f'{folder_name}/component{idx}/') 
+            p = Path(f'results/{folder_name}/component{idx}/') 
             try:
                 p.mkdir()
             except FileExistsError as exc:
                 pass
             
             for c in range(len(components[idx])):
-                open(f'{folder_name}/component{idx}/molecule{c}.xyz','w+')
+                open(f'results/{folder_name}/component{idx}/molecule{c}.xyz','w+')
              
-                with open(f'{folder_name}/component{idx}/molecule{c}.xyz', "w") as file:
+                with open(f'results/{folder_name}/component{idx}/molecule{c}.xyz', "w") as file:
                     file.write(f'{len(components[idx][c])}\n')
                     file.write('#\n')
                     [file.write(' '.join(map(str, self.xyzlist[x])) +'\n') for x in components[idx][c]]

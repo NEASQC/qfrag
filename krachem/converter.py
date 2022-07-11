@@ -27,7 +27,7 @@ def molecule_converter(molecule_input, input_format, output_format):
     obConversion.ReadFile(mol, molecule_input)
     
     
-    molecule_output = 'files' + '/' + molecule_input.split('/')[1].split('.')[0] + '.' +output_format
+    molecule_output = 'input_molecules' + '/' + molecule_input.split('/')[1].split('.')[0] + '.' +output_format
     obConversion.WriteFile(mol, molecule_output)
     mol_file = open(molecule_output)
     

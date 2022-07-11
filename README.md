@@ -1,4 +1,4 @@
-About KraChem
+### About KraChem
 
 KraChem is a Python library designed for working with chemical molecules, fragmentation, based on chemical files input and mathematical tools from graph theory. Therefore, this package has two main functionalities, and they are
 
@@ -15,5 +15,9 @@ Moreover, we implement some routines for plotting graphs and certain analysis, a
 3. matplotlib: a plotting library for the python programming language and its numerical mathematics extension numpy, where we have some features for plotting figures
 4. itertools: this module implements a number of iterator building blocks inspired by constructs from APL, Haskell, and SML. We use this package for combining parts of a chemical compound or atoms in a molecule into a collection of subsets
 4. pathlib: this module offers classes representing filesystem paths with semantics appropriate for different operating systems, where we can access and manipulate files in folders
+
+### Tutorial
+
+We have a [quickstart tutorial](https://git.ichec.ie/neasqc-frag/qfrag/-/blob/master/quickstart_guide.ipynb) if you want to know the basic features in this package.
 
 For documentation [click here](https://www.overleaf.com/project/6123ad698e1e62f3766d1b08)

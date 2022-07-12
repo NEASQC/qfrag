@@ -16,6 +16,13 @@ Moreover, we implement some routines for plotting graphs and certain analysis, a
 4. itertools: this module implements a number of iterator building blocks inspired by constructs from APL, Haskell, and SML. We use this package for combining parts of a chemical compound or atoms in a molecule into a collection of subsets
 4. pathlib: this module offers classes representing filesystem paths with semantics appropriate for different operating systems, where we can access and manipulate files in folders
 
+### Requirements
+
+Numpy
+Networkx
+Openbabel
+Matplotlib
+
 ### Tutorial
 
 We have a [quickstart tutorial](https://git.ichec.ie/neasqc-frag/qfrag/-/blob/master/quickstart_guide.ipynb) if you want to know the basic features in this package.

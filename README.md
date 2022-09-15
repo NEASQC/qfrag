@@ -1,6 +1,6 @@
 ### About KraChem
 
-KraChem is a Python library designed for working with chemical molecules, fragmentation, based on chemical files input and mathematical tools from graph theory. Therefore, this package has two main functionalities, and they are
+KraChem is a beta-version Python library designed for working with chemical molecules, fragmentation, based on chemical files input and mathematical tools from graph theory. Therefore, this package has two main functionalities, and they are
 
 1. Intermolecular Fragmentation: given a chemical compound, where we may have a collection of disconnected molecules we want to find
 2. Intramolecular Fragmentation: given a molecule defined by its atoms and connections, we want to brake this molecule into smaller parts, so we have a collection of subsets of atoms.

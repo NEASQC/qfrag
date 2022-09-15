@@ -12,8 +12,11 @@ There are two main packages where we develop our framework for fragmenting molec
 2. networkx : a python library for studying graphs and networks, where we encode our molecules as graphs and perform several routines and algorithms in our graphs 
 
 Moreover, we implement some routines for plotting graphs and certain analysis, as well as packages for creating subsets and manipulating paths and directories, and they are
+
 3. matplotlib: a plotting library for the python programming language and its numerical mathematics extension numpy, where we have some features for plotting figures
+
 4. itertools: this module implements a number of iterator building blocks inspired by constructs from APL, Haskell, and SML. We use this package for combining parts of a chemical compound or atoms in a molecule into a collection of subsets
+
 4. pathlib: this module offers classes representing filesystem paths with semantics appropriate for different operating systems, where we can access and manipulate files in folders
 
 

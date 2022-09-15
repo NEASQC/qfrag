@@ -19,6 +19,6 @@ Moreover, we implement some routines for plotting graphs and certain analysis, a
 
 ### Tutorial
 
-We have a [quickstart tutorial](https://git.ichec.ie/neasqc-frag/qfrag/-/blob/master/quickstart_guide.ipynb) if you want to know the basic features in this package.
+We have a [quickstart tutorial](quickstart_guide.ipynb) if you want to know the basic features in this package.
 
 For documentation [click here](https://www.overleaf.com/project/6123ad698e1e62f3766d1b08)

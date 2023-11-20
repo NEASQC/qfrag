@@ -11,10 +11,10 @@ While KraChem is intended to aid computational chemistry as a whole, it was deve
 ## KraChem user guide
 To start using KraChem, download this repository. The [krachem](krachem) directory contains the library modules and functionalities, while the [input_molecules](input_molecules) directory contains sample input files which define the chemical molecules. The [results](results) directory is pre-populated with the fragmentation outputs for some of the examples using KraChem.
 
-A user guide for KraChem is provided [here](krachem_user_guide_ipynb) as a Jupyter Notebook.
+A user guide for KraChem is provided [here](krachem_user_guide.ipynb) as a Jupyter Notebook.
 
-## KraChem developer guide
-An outline of the functionalities and modules implemented in the KraChem library is provided as the developer guide [here](krachem_developer_guide.md).
+<!--## KraChem developer guide
+An outline of the functionalities and modules implemented in the KraChem library is provided as the developer guide [here](krachem_developer_guide.md).-->
 
 ## Using and citing KraChem
 KraChem is licensed under the terms of [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
